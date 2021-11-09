@@ -39,6 +39,7 @@ let string = `
  transform:translateX(-50%);
  background:black;
  border-radius:50%;
+ background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%);
 }
 #div1:after{
  width:100px;
@@ -48,6 +49,7 @@ let string = `
  transform:translateX(-50%);
  background:#FFF;
  border-radius:50%;
+ background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%);
 }
 `;
 let string2 = "";
@@ -56,19 +58,19 @@ console.log(string.length);
 let n = 0;
 let step = () => {
     setTimeout(() => {
-        if(string[n] ===  "\n"){
-			string2 += "<br>";
-		}else if(string[n] === " "){
-			string2 += "&nbsp;";
-		}else{
-			string2 += string[n];
-		}
-		html.innerHTML = string2;
-		style.innerHTML = string.substring(0,n);
-		window.scrollTo(0,99999);
-		html.scrollTo(0,99999);
-        if (n < string.length-1) {
-			n += 1; 
+        if (string[n] === "\n") {
+            string2 += "<br>";
+        } else if (string[n] === " ") {
+            string2 += "&nbsp;";
+        } else {
+            string2 += string[n];
+        }
+        html.innerHTML = string2;
+        style.innerHTML = string.substring(0, n);
+        window.scrollTo(0, 99999);
+        html.scrollTo(0, 99999);
+        if (n < string.length - 1) {
+            n += 1;
             step();
         }
     }, 0);
